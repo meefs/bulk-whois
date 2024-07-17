@@ -14,27 +14,27 @@ This Python script performs bulk Whois lookups for both hostnames and IP address
 Before running the script, make sure you have Python 3.6 or higher installed. You'll also need to install the following Python modules:
 
 ```
-pip install ipwhois
+pip install ipwhois python-whois
 ```
 
 ## Usage
 
-Save the script as `whois_lookup.py` and use it in one of the following ways:
+Save the script as `bulk-whois-lookup.py` and use it in one of the following ways:
 
 1. Pipe a list of hostnames or IP addresses:
    ```
-   cat hosts.txt | python whois_lookup.py
+   cat hosts.txt | python bulk-whois-lookup.py
    ```
 
 2. Enter hostnames or IP addresses interactively:
    ```
-   python whois_lookup.py
+   python bulk-whois-lookup.py
    ```
    Then enter hostnames or IPs, one per line. Press Ctrl+D (Unix) or Ctrl+Z (Windows) to finish.
 
 3. Provide hostnames or IP addresses as command-line arguments:
    ```
-   python whois_lookup.py google.com 8.8.8.8 facebook.com 1.1.1.1
+   python bulk-whois-lookup.py google.com 8.8.8.8 facebook.com 1.1.1.1
    ```
 
 ## Examples
@@ -42,7 +42,7 @@ Save the script as `whois_lookup.py` and use it in one of the following ways:
 ### Example 1: Using a mix of hostnames and IP addresses
 
 ```
-$ python whois_lookup.py google.com 8.8.8.8 facebook.com 1.1.1.1
+$ python bulk-whois-lookup.py google.com 8.8.8.8 facebook.com 1.1.1.1
 
 Starting bulk Whois lookup...
 Host/IP: google.com
@@ -83,7 +83,7 @@ facebook.com
 
 Then run:
 ```
-$ cat hosts.txt | python whois_lookup.py
+$ cat hosts.txt | python bulk-whois-lookup.py
 ```
 
 The output will be the same as in Example 1.
