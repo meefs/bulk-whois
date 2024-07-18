@@ -16,7 +16,7 @@ This Python script performs bulk Whois lookups for both hostnames and IP address
 Before running the script, make sure you have Python 3.6 or higher installed. You'll also need to install the following Python modules:
 
 ```
-pip install ipwhois
+pip install ipwhois python-whois
 ```
 
 ## Usage
