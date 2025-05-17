@@ -57,12 +57,12 @@ def bulk_whois_lookup(hosts):
 def print_usage():
     print("Usage:")
     print("  1. Pipe a list of hostnames or IP addresses:")
-    print("     cat hosts.txt | python script.py [--csv output.csv]")
+    print("     cat hosts.txt | python bulk-whois-lookup.py [--csv output.csv]")
     print("  2. Enter hostnames or IP addresses interactively:")
-    print("     python script.py [--csv output.csv]")
+    print("     python bulk-whois-lookup.py [--csv output.csv]")
     print("     Then enter hostnames or IPs, one per line. Press Ctrl+D (Unix) or Ctrl+Z (Windows) to finish.")
     print("  3. Provide hostnames or IP addresses as command-line arguments:")
-    print("     python script.py google.com 8.8.8.8 [--csv output.csv]")
+    print("     python bulk-whois-lookup.py google.com 8.8.8.8 facebook.com 1.1.1.1 [--csv output.csv]")
 
 def main():
     parser = argparse.ArgumentParser(description="Bulk Whois Lookup Script")
