@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import ipaddress
 from ipwhois import IPWhois
 import socket
