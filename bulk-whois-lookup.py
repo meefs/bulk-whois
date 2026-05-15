@@ -1,3 +1,4 @@
+
 #!/usr/bin/env python3
 import ipaddress
 from ipwhois import IPWhois
@@ -50,8 +51,8 @@ def get_whois_info(host):
             'error': str(e)
         }
 
-def bulk_whois_lookup(hosts):
-    with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
+def bulk_whois_lookup(hosts, workers=20):
+    with concurrent.futures.ThreadPoolExecutor(max_workers=workers) as executor:
         results = list(executor.map(get_whois_info, hosts))
     return results
 
@@ -69,6 +70,8 @@ def main():
     parser = argparse.ArgumentParser(description="Bulk Whois Lookup Script")
     parser.add_argument('hosts', nargs='*', help="Hostnames or IP addresses to lookup")
     parser.add_argument('--csv', metavar='FILE', help="Output results to a CSV file")
+    parser.add_argument('-w', '--workers', type=int, default=20, 
+                       help="Number of concurrent workers (default: 20)")
     args = parser.parse_args()
 
     if sys.stdin.isatty() and not args.hosts:
@@ -86,7 +89,7 @@ def main():
         sys.exit(1)
 
     print("Starting bulk Whois lookup...")
-    results = bulk_whois_lookup(hosts)
+    results = bulk_whois_lookup(hosts, workers=args.workers)
     
     if args.csv:
         with open(args.csv, 'w', newline='') as csvfile:
